@@ -10,9 +10,9 @@ def get_base_parser():
     # Experiment
     parser.add_argument('--exper_root', type=str, default='experiments', help='experiments root dir')
     # Model
-    parser.add_argument('--model_name', type=str,
-                        default='model_name',
-                        help='model name')
+    parser.add_argument('--exper_name', type=str,
+                        default='exper_name',
+                        help='experiment name, to use different model, modify the import xx as GAN in train.py or test.py')
     # Data
     parser.add_argument('--data_root', type=str, default='data')
     parser.add_argument('--dataset_name', type=str, default='dataset_name')

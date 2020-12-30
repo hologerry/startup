@@ -18,8 +18,8 @@ torch.autograd.set_detect_anomaly(True)
 
 
 def train(opts):
-    print(f"Training on model {opts.model_name} ...")
-    exper_dir = ospj(opts.exper_root, opts.model_name)
+    print(f"Training on experiment {opts.exper_name} ...")
+    exper_dir = ospj(opts.exper_root, opts.exper_name)
     os.makedirs(exper_dir, exist_ok=True)
     sample_dir = ospj(exper_dir, "samples")
     os.makedirs(sample_dir, exist_ok=True)
@@ -64,7 +64,7 @@ def train(opts):
         if opts.fine_tune and opts.init_epoch > 0:
             # NOTE: model resume is not same as attr model resume
             if opts.azure:
-                model_file_path = ospj(opts.model_name, opts.model_resume, str(len(opts.selected_attrs)), f"model_{opts.init_epoch}.pth")
+                model_file_path = ospj(opts.exper_name, opts.model_resume, str(len(opts.selected_attrs)), f"model_{opts.init_epoch}.pth")
             else:
                 model_file_path = ospj(opts.model_resume, str(len(opts.selected_attrs)), f"model_{opts.init_epoch}.pth")
         checkfiles = os.listdir(ckpt_dir)

@@ -10,12 +10,12 @@ from models.simple_model import Model
 
 
 def test(opts):
-    print(f"Testing {opts.mode} on model {opts.model_name}...")
+    print(f"Testing {opts.mode} on experiment {opts.exper_name}...")
 
     os.environ['CUDA_VISIBLE_DEVICES'] = '1'
     opts.multi_nodes = False
 
-    exper_dir = ospj(opts.exper_root, opts.model_name)
+    exper_dir = ospj(opts.exper_root, opts.exper_name)
     ckpt_dir = ospj(exper_dir, "checkpoint")
     result_dir = ospj(exper_dir, "results")
 
